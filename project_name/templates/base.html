@@ -1,0 +1,127 @@
+<!doctype html>{# keep this on the first line #}
+{% load i18n static %}
+<html class="no-js" lang="{{ LANGUAGE_CODE }}">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>
+    {% block title %}{% endblock %}
+    {{ site.name }}
+    {% block extra_title %}{% endblock %}
+  </title>
+  <meta name="description" content="{% block description %}{% endblock %}">
+  {% block viewport_meta %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% endblock %}
+  {% block extra_meta %}{% endblock extra_meta %}
+
+  {# TO-DO: Determine if <link rel="manifest" href="site.webmanifest"> is desirable #}
+
+  {# TO-DO: set defaults for these #}
+  <link rel="shortcut icon" href="{% static 'img/favicon.png' %}">
+  <link rel="apple-touch-icon" href="{% static 'img/touch-icon.png' %}">
+
+  {% block css %}
+    <link rel="stylesheet" href="{% static css/site.css %}">
+    <link rel="stylesheet" href="{% static css/print.css %}" media="print">
+  {% endblock %}
+
+  {% block canonical %}
+    <link rel="canonical" href="{{ current_path }}">
+  {% endblock %}
+
+
+  {% block feeds %}{% endblock %}
+  {% block extra_head %}{% endblock %}
+
+  {# hat tip to USWDS... #}
+  <!-- * * * * * ======================= -->
+  <!-- * * * * * ======================= -->
+  <!-- * * * * * ======================= -->
+  <!-- * * * * * ======================= -->
+  <!-- ================================= -->
+  <!-- ================================= -->
+  <!-- ================================= -->
+</head>
+
+<body id="{% block body_id %}default{% endblock %}" class="{% block body_class %}section_front{% endblock %}">
+  <a class="usa-skipnav" href="#main-content">Skip to main content</a>
+  <header role="banner">
+    <div class="usa-grid usa-banner-inner">
+      <img src="/assets/img/favicons/favicon-57.png" alt="U.S. flag">
+      <p>An official website of the United States government</p>
+      <button class="usa-accordion-button usa-banner-button" aria-expanded="false" aria-controls="gov-banner">
+        <span class="usa-banner-button-text">Here’s how you know</span>
+      </button>
+    </div>
+    
+    {% block banner %}
+      <div class="site-name">
+        {% block site_name %}
+          <h1>
+            <a href="/">
+              {% block logo %}{{ site.name }}{% endblock %}
+            </a>
+          </h1>
+          {% block nav_tagline %}{% endblock %}
+        {% endblock %}
+      </div>
+    {% endblock %}
+    {% block banner_nav %}{% endblock %}
+  </header>
+  <div id="wrapper">
+    {% block content_top %}{% endblock %}
+    <div id="content-wrapper">
+      {% block messages %}
+        {% if messages %}
+          <ul class="messages">
+            {% for message in messages %}
+              <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                {{ message }}
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endblock %}
+
+      {% block section_nav %}{% endblock %}
+
+      <main>{% block content %}{% endblock %}</main>
+
+      <div role="complementary">{% block complementary %}{% endblock %}</div>
+
+      {% block content_bottom %}{% endblock %}
+    </div>
+
+    <footer id="footer" role="contentinfo">
+      {% block footer_nav %}
+        <nav role="navigation">
+          {# uncomment if you want it #}
+          {# include 'includes/site_nav.html' #}
+        </nav>
+      {% endblock %}
+      {% block footer %}
+        <div>
+          <p class="right">Powered by <a href="http://tbaxter.github.io/Tango/">Tango</a>
+          <p class="copyright">&copy; {{ now.year }} {{ site.name }}</p>
+        </div>
+      {% endblock %}
+    </footer>
+  </div> <!-- /#wrapper -->
+
+  {% block init_js %}{% endblock %}{# useful for vars and other initializations #}
+
+  {% block site_js %}
+    <script src="{{ STATIC_URL }}js/site-combined-min.js"></script>
+  {% endblock %}
+
+  {% block app_js %}{% endblock %}
+
+  {% block extrascript %}{% endblock %}
+
+  {# asynchronous google analytics: mathiasbynens.be/notes/async-analytics-snippet #}
+  <script async id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal­Federated­Analytics­M
+in.js?agency={{ AGENCY }}"></script>
+</body>
+</html>
