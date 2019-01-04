@@ -9,7 +9,7 @@ This (currently WIP) project template is designed to make starting a new USWDS-b
 1. Be sure pipenv is installed: `pip install pipenv`
 2. Create or navigate to the directory you're building your Django project in. Typically, this should be your Git repository.
 3. Grab the pipfile from this repo: `wget https://raw.githubusercontent.com/18F/18f-django-project-template/master/Pipfile`
-4. Then install the dependencies in it you'll want for your project: `pipenv install`
+4. Then use it to install Django and other dependencies you'll want for your project: `pipenv install`
 4. Activate the pipenv shell (virtualenv) with `pipenv shell`
 5. Now you'll start your project pulling from this repo for the template: `django-admin.py startproject --template=https://github.com/18F/18f-django-project-template/archive/master.zip project_name`. Be sure to replace `project_name` with whatever your project should be named.
 6. Move into the `project_name` directory you just created.
