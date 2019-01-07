@@ -31,24 +31,18 @@ By default your AGENCY setting (used for analytics) is set to the project name. 
 - `base.html` based on HTML5 Boilerplate, optimized for USWDS, accessibility and best practices.
 - Uses [Pipenv](https://github.com/kennethreitz/pipenv) - the officially recommended Python packaging tool from Python.org.
 - Get value insight and debug information while on Development with [django-debug-toolbar](https://django-debug-toolbar.readthedocs.org).
-- HTTPS and other security related settings on Staging and Production.
-- Procfile for running gunicorn with New Relic's Python agent.
-- Some additional context processors for useful items.
+- HTTPS and other security related settings.
+- Some additional context processors.
+- Cloud.gov integration, including Cloud UAA and database readiness.
 
 
-## Upcoming
+## Additional docs
+Additional documentation is available in the `/docs` folder.
+
+## Upcoming additions
 - USWDS integration (NPM? Submodule? Preferences?)
-- Cloud.gov readiness
+- Improved Cloud.gov readiness
 
-
-## Environment variables
-
-These are common between environments. The `ENVIRONMENT` variable loads the correct settings, possible values are: `DEVELOPMENT` and `PRODUCTION`.
-
-```
-ENVIRONMENT='DEVELOPMENT'
-DJANGO_SECRET_KEY='dont-tell-eve'
-```
 
 ## Deployment
 
