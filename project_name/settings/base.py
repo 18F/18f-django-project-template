@@ -26,9 +26,6 @@ PROJECT_DIR = os.path.dirname(os.path.realpath(__file__))
 AGENCY       = PROJECT_NAME
 
 DATABASES = {}
-DATABASES['default'] = dj_database_url.config(
-    default='postgres://{{ project_name }}:{{ project_name }}@localhost/{{ project_name }}'
-)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
