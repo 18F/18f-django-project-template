@@ -7,7 +7,7 @@ name = "pypi"
 Werkzeug = "==0.14.1"
 
 [packages]
-Django = ">=2.1"
+Django = ">=2.0"
 cg-django-uaa = "*"
 django-debug-toolbar = "==1.10.1"
 docutils = ">=0.10"
