@@ -5,10 +5,6 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 # https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#databases
-DATABASES = values.DatabaseURLValue(
-    'sqlite:///{}'.format(os.path.join(BASE_DIR, 'db.sqlite3'))
-)
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
