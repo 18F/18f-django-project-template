@@ -10,7 +10,7 @@ factory-boy = "*"
 flake8 = "*"
 
 [packages]
-Django = "~=2.1"
+Django = ">=2.0"
 cfenv = "*"
 cg-django-uaa = "*"
 dj-database-url = "*"
