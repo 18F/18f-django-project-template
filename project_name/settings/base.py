@@ -9,10 +9,11 @@ https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/
 """
 
 import os
-
-from .env import env
+import dj_database_url
 
 from django.utils.crypto import get_random_string
+
+from .env import env
 
 DEBUG = False
 
@@ -24,11 +25,13 @@ PROJECT_DIR = os.path.dirname(os.path.realpath(__file__))
 # You'll want to set this to your Agency name
 AGENCY       = PROJECT_NAME
 
-# https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#databases
-DATABASES = values.DatabaseURLValue(
-    'sqlite:///{}'.format(os.path.join(BASE_DIR, 'db.sqlite3'))
-)
-
+DATABASES = {
+    'default': {
+        dj_database_url.config(
+            default='postgres://tock:tock@localhost/tock'
+        )
+    }
+}
 
 INSTALLED_APPS = [
     'django.contrib.admin',

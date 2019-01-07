@@ -4,6 +4,18 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#databases
+DATABASES = values.DatabaseURLValue(
+    'sqlite:///{}'.format(os.path.join(BASE_DIR, 'db.sqlite3'))
+)
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': '{{ project_name }}_dev_db',
+    }
+}
+
 INTERNAL_IPS = [
     '127.0.0.1'
 ]
@@ -20,3 +32,4 @@ UAA_CLIENT_ID = 'testtesttesttesttesttesttesttesttesttesttest'
 UAA_CLIENT_SECRET = 'testtesttesttesttesttesttesttesttesttest'
 UAA_AUTH_URL = 'fake:'
 UAA_TOKEN_URL = 'fake:'
+
