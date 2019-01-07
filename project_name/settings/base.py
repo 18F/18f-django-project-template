@@ -54,7 +54,9 @@ SECRET_KEY = env.get_credential('DJANGO_SECRET_KEY', get_random_string(50))
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            PROJECT_DIR + '/templates',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
