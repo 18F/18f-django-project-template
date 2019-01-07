@@ -17,7 +17,7 @@ from .env import env
 
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 PROJECT_NAME = '{{ project_name }}'
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 PROJECT_DIR = os.path.dirname(os.path.realpath(__file__))
