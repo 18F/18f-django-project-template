@@ -13,7 +13,7 @@ This (currently WIP) project template is designed to make starting a new USWDS-b
 4. Activate the pipenv shell (virtualenv) with `pipenv shell`
 5. Now you'll start your project pulling from this repo for the template: `django-admin.py startproject --template=https://github.com/18F/18f-django-project-template/archive/master.zip project_name`. Be sure to replace `project_name` with whatever your project should be named.
 6. Move into the `project_name` directory you just created.
-7. Move the example.env file to `.env` to set up your development environment variables: `mv example.env .env`
+7. Create a  `.env` for your environment variables. The `example.env` included here is one good example.
 8. Run `manage.py runserver` and go take a look at your new project.
 
 
