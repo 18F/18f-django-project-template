@@ -20,7 +20,6 @@ DEBUG = False
 ALLOWED_HOSTS = ['*']
 PROJECT_NAME = '{{ project_name }}'
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-PROJECT_DIR = os.path.dirname(os.path.realpath(__file__))
 
 # You'll want to set this to your Agency name
 AGENCY       = PROJECT_NAME
@@ -55,7 +54,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            PROJECT_DIR + '/templates',
+            BASE_DIR + '/templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
