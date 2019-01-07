@@ -2,8 +2,6 @@ from .base import *
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
 # https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#databases
 DATABASES = {
     'default': {

@@ -17,7 +17,7 @@ from .env import env
 
 DEBUG = False
 
-# ALLOWED_HOSTS = values.ListValue([])
+ALLOWED_HOSTS = []
 PROJECT_NAME = '{{ project_name }}'
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 PROJECT_DIR = os.path.dirname(os.path.realpath(__file__))
@@ -25,6 +25,7 @@ PROJECT_DIR = os.path.dirname(os.path.realpath(__file__))
 # You'll want to set this to your Agency name
 AGENCY       = PROJECT_NAME
 
+DATABASES = {}
 DATABASES['default'] = dj_database_url.config(
     default='postgres://{{ project_name }}:{{ project_name }}@localhost/{{ project_name }}'
 )
@@ -87,12 +88,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/{{ docs_version }}/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
-
-
-try:
-    VERSION = (Path(BASE_DIR) / '..' / 'VERSION').read_text().strip()
-except IOError:
-    VERSION = 'master'
 
 # CF-Django-UAA config (cg-django-uaa.readthedocs.io)
 UAA_APPROVED_DOMAINS = {}
