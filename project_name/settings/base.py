@@ -20,6 +20,7 @@ DEBUG = False
 ALLOWED_HOSTS = ['*']
 PROJECT_NAME = '{{ project_name }}'
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+PARENT_DIR = os.path.abspath(os.path.join(BASE_DIR, os.path.pardir))
 
 # You'll want to set this to your Agency name
 AGENCY       = PROJECT_NAME
@@ -84,8 +85,13 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/{{ docs_version }}/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_URL = '/static/'
+# Here we're trying to find both files in the project /static/ directory
+# and any USWDS files that were installed.
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    os.path.join(PARENT_DIR, "/node_modules/uswds/dist/"),
+]
+STATIC_ROOT = os.path.join(PARENT_DIR, '/collected_static/', PROJECT_NAME)
 
 # CF-Django-UAA config (cg-django-uaa.readthedocs.io)
 UAA_APPROVED_DOMAINS = {}
