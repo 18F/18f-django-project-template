@@ -97,7 +97,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static/"),
     os.path.join(ROOT_DIR, "node_modules/uswds/dist/"),
 ]
-STATIC_ROOT = os.path.join(PARENT_DIR, 'collected_static/', PROJECT_NAME)
+STATIC_ROOT = os.path.join(PARENT_DIR, 'collected_static/')
 STATIC_URL = '/static/'
 
 # CF-Django-UAA config (cg-django-uaa.readthedocs.io)
