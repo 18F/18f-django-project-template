@@ -94,10 +94,10 @@ USE_TZ = True
 # Here we're trying to find both files in the project /static/ directory
 # and any USWDS files that were installed.
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-    os.path.join(ROOT_DIR, "/node_modules/uswds/dist/"),
+    os.path.join(BASE_DIR, "static/"),
+    os.path.join(ROOT_DIR, "node_modules/uswds/dist/"),
 ]
-STATIC_ROOT = os.path.join(PARENT_DIR, '/collected_static/', PROJECT_NAME)
+STATIC_ROOT = os.path.join(PARENT_DIR, 'collected_static/', PROJECT_NAME)
 STATIC_URL = '/static/'
 
 # CF-Django-UAA config (cg-django-uaa.readthedocs.io)
