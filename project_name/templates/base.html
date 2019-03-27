@@ -105,9 +105,8 @@
       {% endblock %}
     </header>
   {% endblock banner %}
+  {% block usa_overlay %}<div class="usa-overlay"></div>{% endblock %}
   <div id="wrapper">
-    {% block usa_overlay %}{% endblock %}
-    <div id="content-wrapper">
       {% block messages %}
         {% if messages %}
           <ul class="messages">
@@ -122,7 +121,10 @@
 
       {% block section_nav %}{% endblock %}
 
-      <main id="main-content">{% block content %}{% endblock %}</main>
+      <main id="main-content">
+        {% block hero %}{% endblock %}
+        {% block content %}{% endblock %}
+      </main>
 
       <div role="complementary">{% block complementary %}{% endblock %}</div>
 
