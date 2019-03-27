@@ -19,8 +19,14 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 PROJECT_NAME = '{{ project_name }}'
+
+# Resolve the paths to the project for convenience
+# The project itself (the one with settings in it)
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+# The project wrapper, including apps and the project
 PARENT_DIR = os.path.abspath(os.path.join(BASE_DIR, os.path.pardir))
+# And the root (usually the container)
+ROOT_DIR = os.path.abspath(os.path.join(PARENT_DIR, os.path.pardir))
 
 # You'll want to set this to your Agency name
 AGENCY       = PROJECT_NAME
@@ -89,7 +95,7 @@ USE_TZ = True
 # and any USWDS files that were installed.
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
-    os.path.join(PARENT_DIR, "/node_modules/uswds/dist/"),
+    os.path.join(ROOT_DIR, "/node_modules/uswds/dist/"),
 ]
 STATIC_ROOT = os.path.join(PARENT_DIR, '/collected_static/', PROJECT_NAME)
 STATIC_URL = '/static/'
