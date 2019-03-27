@@ -134,21 +134,14 @@
     <footer id="footer" role="contentinfo">
       {% block footer_nav %}
       {% endblock %}
-      {% block footer %}
-        <div>
-          <p class="copyright">&copy; {{ now.year }} {{ site.name }}</p>
-        </div>
-      {% endblock %}
+      {% block footer %}{% endblock %}
     </footer>
   </div> <!-- /#wrapper -->
 
   {% block init_js %}{% endblock %}{# useful for vars and other initializations #}
 
-  {% block site_js %}
-  {% endblock %}
-
+  {% block site_js %}{% endblock %}
   {% block app_js %}{% endblock %}
-
   {% block extrascript %}{% endblock %}
 
   {# asynchronous analytics #}
